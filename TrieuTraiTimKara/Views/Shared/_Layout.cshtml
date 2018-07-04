@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html">
+
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/CustomBS.css" rel="stylesheet" />
+    <link href="~/Assets/css/hover.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <title>@ViewBag.Title - Triệu Trái Tim Karaoke - Nơi giải trí và giao lưu Karaoke</title>
+
+
+
+</head>
+<body>
+    <header>
+
+
+        <div class="container-fluid C0">
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 logoweb">
+                <a href=""><img src="/Assets/image/LogoWeb.png" class="img-responsive" alt="DeepKara"></a>
+            </div>
+
+            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 Search">
+
+                <input type="search" class="form-control" placeholder="Search">
+
+            </div>
+
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 intro">
+                <div class="row">
+                    Chào mừng đến với diễn đàn karaoke. Chúc các bạn ca hát vui vẻ!
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <nav class="navbar navbar-default Bar" role="navigation">
+            <div class="container C0_Bar">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#"><b class="glyphicon glyphicon-home"></b>&nbsp;Trang Chủ</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Thể Loại <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Nhạc Trẻ</a></li>
+                                <li><a href="">Nhạc Trữ Tình</a></li>
+                                <li><a href="">Nhạc Sống</a></li>
+                                <li><a href="">Nhạc Song Ca</a></li>
+                                <li><a href="">Nhạc Quốc Tế</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Ca Sĩ</a></li>
+                        <li><a href="#">Yêu Thích Nhất</a></li>
+                        <li><a href="#">Bảng Xếp Hạng</a></li>
+                        <li><a href="#">Yêu Cầu Karaoke</a></li>
+                        <li><a href="#">Karaoke Cá Nhân</a></li>
+                        <li><a class="TruyCapNhanh" href="#">Truy Cập Nhanh</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+
+    </header><!-- /header -->
+
+    @RenderBody()
+
+
+
+
+    <footer>
+        <div class="container-fluid mauden">
+            <div class="row BarFirst">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-push-1">
+                    <ul class="U1">
+                        <li><a class="hvr-underline-from-center" href="">Quốc Tế</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Bolero Trữ Tình</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Nhạc Trẻ</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Nhạc Dance</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Nhạc Rap</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Nhạc Sống</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-pull-1">
+                    <ul class="U1">
+                        <li><a class="hvr-underline-from-center" href="">Bảng Xếp Hạng</a></li>
+                        <li><a class="hvr-underline-from-center" charset="" href="">Yêu Thích Nhất</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Tuyển Chọn Đặc Sắc</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Playlist Nhạc Hot</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xs-pull-1">
+                    <ul class="U1">
+                        <li><a class="hvr-underline-from-center" href="">Về Chúng Tôi</a></li>
+                        <li><a class="hvr-underline-from-center" href="">Trang Giới Thiệu</a></li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="row BarSecond">
+                <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4 InfoAuthor col-xs-push-1">
+
+                    <p>Design By <i style="color:white">Nguyễn Thanh Phi</i></p>
+                    <p>Email: tuonglaivinhhang1@gmail.com</p>
+                    <p>&copy;  2018 All Rights Reserved</p>
+                </div>
+
+
+                <div class="col-xs-9 col-sm-8">
+                    <div class="social">
+                        <a href="#" class="fb">
+                            <span class="icon zocial-facebook"></span>
+                            <span class="info">
+                                <span class="follow">Follow me Facebook</span>
+                                <span class="num">1300</span>
+                            </span>
+                        </a>
+
+                        <a href="#" class="tw">
+                            <span class="icon zocial-twitter"></span>
+                            <span class="info">
+                                <span class="follow">Follow me Twitter</span>
+                                <span class="num">234</span>
+                            </span>
+                        </a>
+
+                        <a href="#" class="rss">
+                            <span class="icon zocial-youtube"></span>
+                            <span class="info">
+                                <span class="follow">Subscribe Youtube</span>
+                                <span class="num">120</span>
+                            </span>
+                        </a>
+                    </div>
+
+                </div><!-- end social -->
+
+
+            </div><!-- //end row -->
+
+        </div><!-- end container -->
+
+    </footer>
+
+    <script src="~/Assets/js/jquery.js"></script>
+
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+
+    <script src="~/Assets/js/formresponsive.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });
+
+    </script>
+
+    <script src="~/Assets/js/DemoBS.js"></script>
+
+    <script>
+
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+
+    <!-- reference for slider carousel -->
+    <script src="~/Assets/js/slidercarousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            jssor_1_slider_init = function () {
+
+                var jssor_1_options = {
+                    $AutoPlay: 1,
+                    $AutoPlaySteps: 4,
+                    $SlideDuration: 160,
+                    $SlideWidth: 200,
+                    $SlideSpacing: 3,
+                    $Cols: 4,
+                    $ArrowNavigatorOptions: {
+                        $Class: $JssorArrowNavigator$,
+                        $Steps: 4
+                    },
+                    $BulletNavigatorOptions: {
+                        $Class: $JssorBulletNavigator$,
+                        $SpacingX: 1,
+                        $SpacingY: 1
+                    }
+                };
+
+                var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+                /*responsive code begin*/
+                /*remove responsive code if you don't want the slider scales while window resizing*/
+                function ScaleSlider() {
+                    var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                    if (refSize) {
+                        refSize = Math.min(refSize, 809);
+                        jssor_1_slider.$ScaleWidth(refSize);
+                    }
+                    else {
+                        window.setTimeout(ScaleSlider, 30);
+                    }
+                }
+                ScaleSlider();
+                $Jssor$.$AddEvent(window, "load", ScaleSlider);
+                $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+                $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+                /*responsive code end*/
+            };
+            jssor_1_slider_init();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+﻿@model Model.EF.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script>
+            $(document).ready(function () {
+                $('#button-imageselect').on('click', function (e) {
+                    e.preventDefault();
+                    var finder = new CKFinder();
+                    finder.selectActionFunction = function (url) {
+                        $('#tbImage').val(url);
+
+
+                    };
+                    finder.popup();
+
+                });
+                var editor = CKEDITOR.replace('tardecription', {
+                    customConfig: "/Assets/Admin/plugins/ckeditor/config.js",
+                  
+                });
+        });
+
+
+    </script>
+
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Thêm sản phẩm</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#">Settings 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        @*form here*@
+
+                        @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                <h4>Thông Tin Sản Phẩm</h4>
+                                <hr />
+                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Name,new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.Name,  new { @class = "form-control col-md-7 col-xs-12" ,@required=""})
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Code, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.Code, new { @class = "form-control col-md-7 col-xs-12", @required = "" })
+                                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Detail, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextAreaFor(model => model.Detail, new { @class = "form-control col-md-7 col-xs-12",@id="tardecription"})
+                                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                    
+                
+                              @*thư viện CKFinder*@
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model=>model.Image, "", new { @class = "form-control col-md-7 col-xs-12",@readonly="readonly", @required = "" ,@id="tbImage"})
+                                        <a id="button-imageselect" href="#">Chọn Ảnh</a>
+                                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                             
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.Price, new { @class = "form-control col-md-7 col-xs-12",@type="number", @required = "" })
+                                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.PromotionPrice, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.PromotionPrice, new { @class = "form-control col-md-7 col-xs-12", @type = "number"})
+                                        @Html.ValidationMessageFor(model => model.PromotionPrice, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.IncludeVAT, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.RadioButtonFor(model => model.IncludeVAT,true, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })@Html.Label("Yes")
+                                        @Html.RadioButtonFor(model => model.IncludeVAT,false, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })@Html.Label("No")
+                                        @Html.ValidationMessageFor(model => model.IncludeVAT, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Quantity, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control col-md-7 col-xs-12", @type = "number", @required = "" })
+                                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                @*Dùng dropdowlist*@
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.CategoryID, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.DropDownListFor(model => model.CategoryID, null, new { @class = "form-control col-md-7 col-xs-12" })
+                                        @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Waranty, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.Waranty, new { @class = "form-control col-md-7 col-xs-12", @type = "number", @required = "" })
+                                        @Html.ValidationMessageFor(model => model.Waranty, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            
+                                                        
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.MetaKeywords, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.MetaKeywords, new { @class = "form-control col-md-7 col-xs-12" })
+                                        @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.MetaDescriptions, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextAreaFor(model => model.MetaDescriptions, new { @class = "form-control col-md-7 col-xs-12" })
+                                        @Html.ValidationMessageFor(model => model.MetaDescriptions, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.Status,  new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.RadioButtonFor(model => model.Status, true, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })@Html.Label("True")
+                                        @Html.RadioButtonFor(model => model.Status, false, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })@Html.Label("False")
+
+                                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="item form-group">
+                                    @Html.LabelFor(model => model.ViewCount, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Html.TextBoxFor(model => model.ViewCount, new { @class = "form-control col-md-7 col-xs-12", @type = "number", @required = "" })
+                                        @Html.ValidationMessageFor(model => model.ViewCount, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="item form-group">
+                                    <div class="col-md-offset-5 col-md-10">
+                                        <input type="submit" value="Add" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                        @*end form*@
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

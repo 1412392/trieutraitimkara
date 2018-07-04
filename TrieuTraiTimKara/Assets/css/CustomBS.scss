@@ -1,0 +1,507 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+    background-color: #162945;
+}
+
+
+@mixin stylerow() {
+    margin-left: 0px;
+    margin-right: 0px;
+    line-height: 50px;
+    font-size: 15px;
+    font-family: Arial;
+
+    .fa-heart {
+
+        &:before {
+            color: red;
+        }
+    }
+
+    .fa-user {
+
+        &:before {
+            color: blue;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+
+header {
+
+    .C0 {
+        padding-bottom: 10px;
+        background-color: #0D0D0D;
+
+        .Search {
+            padding-top: 17px;
+            margin-left: 50px;
+            /* search input field */
+            input[type=search] {
+                background: #ededed url(../Image/searchbutton.gif) no-repeat 9px center;
+                border: solid 1px #ccc;
+                padding: 9px 10px 9px 32px;
+                width: 355px;
+                -webkit-border-radius: 10em;
+                -moz-border-radius: 10em;
+                border-radius: 10em;
+                -webkit-transition: all .5s;
+                -moz-transition: all .5s;
+                transition: all .5s;
+            }
+
+            input[type=search]:focus {
+                width: 455px;
+                background-color: #fff;
+                border-color: #6dcff6;
+                -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+                -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+                box-shadow: 0 0 5px rgba(109,207,246,.5);
+            }
+            /* placeholder */
+            input:-moz-placeholder {
+                color: #999;
+                text-indent: 15px;
+            }
+
+            input::-webkit-input-placeholder {
+                color: #999;
+                text-indent: 15px;
+            }
+        }
+
+        .intro {
+            padding-top: 20px;
+            color: white;
+        }
+    }
+
+    .Bar {
+        margin: 0px;
+        background-color: #CFD3D4;
+
+        .C0_Bar {
+            ul {
+                li {
+                    color: black;
+                    font-family: 'Lora', serif;
+
+                    &:hover {
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.format {
+    margin-top: 7px;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-brand > img {
+    height: 100%;
+    padding: 15px;
+    width: auto;
+}
+
+.IntroImage {
+    height: 150px;
+    width: 100%;
+}
+
+.Hover:hover {
+    width: 110%;
+    height: auto;
+}
+
+.Format {
+    position: relative;
+}
+
+.Format .captionforCategory {
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: lato;
+}
+
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+
+/* zocial */
+[class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+}
+
+.mauden {
+    background-color: #222;
+
+    .BarFirst {
+        .U1 {
+            list-style: none;
+            padding-top: 10px;
+            display: block;
+
+            li {
+                padding-top: 10px;
+
+
+                a {
+                    color: white;
+                    font-size: 16px;
+                    text-decoration: none;
+                    font-family: lato;
+                }
+            }
+        }
+    }
+
+    .BarSecond {
+        background-color: #1E2629;
+
+        .InfoAuthor {
+            padding-top: 10px;
+
+            p {
+                color: #778888;
+                font-family: lato;
+            }
+        }
+    }
+}
+
+
+
+.social {
+    position: absolute;
+    right: 100px;
+    padding-top: 10px;
+
+    a {
+        color: #778888;
+        margin-left: 20px;
+        text-decoration: none;
+
+        &:hover {
+            color: #FFFFFF;
+
+            .icon {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    .icon {
+        display: inline-block;
+        font-size: 36px;
+        margin-right: 5px;
+        vertical-align: middle;
+        -webkit-transition: -webkit-transform .3s linear;
+        -moz-transition: -moz-transform .3s linear;
+        -ms-transition: -ms-transform .3s linear;
+        -o-transition: -o-transform .3s linear;
+        transition: transform .3s linear;
+    }
+
+    .info {
+        display: inline-block;
+        vertical-align: middle;
+
+        .follow {
+            display: block;
+        }
+
+        .num {
+            display: block;
+        }
+    }
+}
+
+@import "../font-awesome/scss/font-awesome";
+
+.delete-margin {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.DieuChinhTieuDe {
+    //border-bottom:solid 2px red;
+    font-family: 'Raleway', sans-serif;
+    background-color: #38BEEB;
+    color: white;
+    // &:before{
+    // 	content:url(../Image/HOT.gif);
+    // 	padding-right:10px;
+    // }
+    // &:after{
+    // 	content:url(../Image/HOT.gif);
+    // 	padding-left:10px;
+    // }
+}
+
+/* .multi-item-carousel{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-33%;
+      }
+      &.right{
+        left:33%;
+      }
+    }
+    .next{
+      left: 33%;
+    }
+    .prev{
+      left: -33%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        // use your favourite prefixer here
+        transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  
+}
+ */
+
+
+.container {
+    .row {
+    }
+
+    .row {
+        a {
+
+            .FormatCaSi {
+                color: #B8B8B8;
+                font-size: 16px;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+
+
+.C1 { //css for intro album
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .R1 {
+    }
+
+    .R2 {
+    }
+
+    border-bottom: solid 5px #DBDBDB;
+}
+
+.C4 { //nhac song hay nhat
+    background-color: white;
+    border-top: solid 1px #A5A7A8;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .R1 {
+    }
+
+    .R2 {
+    }
+
+    border-bottom: solid 5px #DBDBDB;
+}
+
+.C5 { //karaoke moi nhat
+    background-color: white;
+    border-top: solid 1px #A5A7A8;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .R1 {
+    }
+
+    .R2 {
+    }
+
+    border-bottom: solid 5px #DBDBDB;
+}
+
+footer {
+    .BarFirst {
+        background-image: url("../Image/footer.png")
+    }
+}
+
+
+.C2 { //playlist va top 10
+    border-top: solid 1px #A5A7A8;
+    background-color: white;
+
+    .R1 {
+        .Playlist {
+            padding-bottom: 30px;
+
+            .R1sub2 { //css for table song
+                // border-bottom:solid red 1px;
+                margin-left: 10px;
+                margin-right: 10px;
+
+                .R1sub2_1 { //audio player
+                    margin-left: 0px;
+                    margin-right: 0px;
+                }
+
+                .R1sub2_2 { //first song
+                    @include stylerow;
+                }
+
+                .R1sub2_3 { //first song
+                    @include stylerow;
+                }
+
+                .R1sub2_4 { //first song
+                    @include stylerow;
+                }
+
+                .R1sub2_5 { //first song
+                    @include stylerow;
+                }
+
+                .R1sub2_6 { //first song
+                    @include stylerow;
+                }
+
+                .R1sub2_7 { //first song
+                    @include stylerow;
+                }
+            }
+        }
+
+        .Top10 {
+        }
+    }
+
+    border-bottom: solid 5px #DBDBDB;
+}
+
+
+//slider carousel css
+.jssorb03 {
+    position: absolute;
+}
+
+.jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+    position: absolute;
+    /* size of bullet elment */
+    width: 21px;
+    height: 21px;
+    text-align: center;
+    line-height: 21px;
+    color: white;
+    font-size: 12px;
+    background: url('../Image/b03.png') no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.jssorb03 div {
+    background-position: -5px -4px;
+}
+
+.jssorb03 div:hover, .jssorb03 .av:hover {
+    background-position: -35px -4px;
+}
+
+.jssorb03 .av {
+    background-position: -65px -4px;
+}
+
+.jssorb03 .dn, .jssorb03 .dn:hover {
+    background-position: -95px -4px;
+}
+
+/* jssor slider arrow navigator skin 03 css */
+/*
+        .jssora03l                  (normal)
+        .jssora03r                  (normal)
+        .jssora03l:hover            (normal mouseover)
+        .jssora03r:hover            (normal mouseover)
+        .jssora03l.jssora03ldn      (mousedown)
+        .jssora03r.jssora03rdn      (mousedown)
+        .jssora03l.jssora03ldn      (disabled)
+        .jssora03r.jssora03rdn      (disabled)
+        */
+.jssora03l, .jssora03r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    background: url('../Image/a03.png') no-repeat;
+    overflow: hidden;
+}
+
+.jssora03l {
+    background-position: -3px -33px;
+}
+
+.jssora03r {
+    background-position: -63px -33px;
+}
+
+.jssora03l:hover {
+    background-position: -123px -33px;
+}
+
+.jssora03r:hover {
+    background-position: -183px -33px;
+}
+
+.jssora03l.jssora03ldn {
+    background-position: -243px -33px;
+}
+
+.jssora03r.jssora03rdn {
+    background-position: -303px -33px;
+}
+
+.jssora03l.jssora03lds {
+    background-position: -3px -33px;
+    opacity: .3;
+    pointer-events: none;
+}
+
+.jssora03r.jssora03rds {
+    background-position: -63px -33px;
+    opacity: .3;
+    pointer-events: none;
+}

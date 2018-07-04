@@ -1,0 +1,89 @@
+﻿@model PagedList.IPagedList<Models.EF.Account>
+@using PagedList.Mvc;
+@using TrieuTraiTimKara.Common
+@{
+    ViewBag.Title = "Account List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+@section jsFooter{
+    <script src="~/Assets/Admin/ajax/AccountController.js?v=@Helper.GetRandom()"></script>
+    <script>
+        $('#notifymessage').removeClass('hide');
+        $('#notifymessage').delay(2000).slideUp(500);
+
+    </script>
+}
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        @if (TempData["AlertMessage"] != null)
+                        {
+                            <div id="notifymessage" class="alert @TempData["AlertType"]" style="font-size:23px;">
+                                @TempData["AlertMessage"]
+                            </div>
+                        }
+
+                        <br />
+                        <h2>Danh sách tài khoản</h2>
+
+                        <a class="btn btn-primary" style="float:right" href="/admin/account/addaccount">Add</a>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FullName</th>
+
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="row_@item.id">
+                                        <td>@item.id</td>
+                                        <td>@item.name</td>
+
+                                        <td>@item.email</td>
+                                        <td>@item.phone</td>
+
+                                        <td>
+
+                                            <a href="/admin/account/addaccount/@item.id" class="btn btn-warning">Edit</a>
+
+                                            <a href="#" class="btn btn-danger btn-delete-acc" data-id="@item.id">Xóa</a>
+                                        </td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

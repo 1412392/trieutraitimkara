@@ -1,0 +1,136 @@
+﻿@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Danh Sách Sản Phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+@section jsFooter{
+
+
+    <script src="/Assets/Admin/ajax/ProductController.js"></script>
+    <script>
+        $('#notifymessage').removeClass('hide');
+        $('#notifymessage').delay(2000).slideUp(500);
+
+    </script>
+}
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        @if (TempData["AlertMessage"] != null)
+                        {
+                            <div id="notifymessage" class="alert @TempData["AlertType"]" style="font-size:23px;">
+                                @TempData["AlertMessage"]
+                            </div>
+                        }
+
+                        <br />
+                        <h2>Danh sách sản phẩm</h2>
+
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#">Settings 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>MetaTitle</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Category</th>
+                                    <th>CreatedDate</th>
+                                    <th>Status</th>
+                                    <th>Views</th>
+
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="row_@item.ID">
+                                        <td>@item.ID</td>
+                                        <td>@item.Name</td>
+                                        <td><img class="img-responsive" src="@item.Image" /></td>
+                                        <td>
+
+                                            @*@Html.Raw(System.Web.HttpUtility.HtmlDecode(@item.Detail.Substring(0, 100)))*@
+
+                                            @item.MetaTitle
+
+                                        </td>
+
+                                        <td>@item.Price</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@(item.CategoryID == 1 ? "Mobile" : "Laptop")</td>
+                                        @if (@item.CreatedDate == null)
+                                        {
+                                            <td>@item.CreatedDate</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.CreatedDate.Value.ToShortDateString()</td>
+                                        }
+
+                                        <td>@(item.Status == true ? "Enable" : "Disable")</td>
+                                        <td>@item.ViewCount</td>
+
+                                        <td>
+
+                                            <a href="/admin/product/editproduct/@item.ID" class="btn btn-warning">Sửa</a>
+                                            @*Viết Ajax file riêng*@
+                                            <a href="#" class="btn btn-danger btn-delete-product" data-id="@item.ID">Xóa</a>
+
+
+                                            @*Xóa
+                                                     @Ajax.ActionLink("Xóa", "DeleteProduct", new { @id = item.ID }, new AjaxOptions
+                                                {
+                                                    Confirm = "Bạn có chắc chắn muốn xóa không?",
+                                                    OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                                    HttpMethod = "Delete"
+                                                }, new { @class = "btn btn-danger" });*@
+
+                                        </td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
